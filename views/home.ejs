@@ -1,0 +1,115 @@
+<%- include('partials/header') %>
+
+<div class="container emp-profile">
+    
+        <div class="row">
+            <div class="col-md-4">
+                
+                <div class="profile-img">
+                    <img src="<%- userInfo.image %> " alt=""/>
+                    <form method="post" action="/upload" enctype="multipart/form-data">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                            <span><input type="file" name="img" id="img"></span>
+                            
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                    </div>
+                    </form>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                <div class="profile-head">
+                            <h5>
+                              <%- userInfo.username %> 
+                            </h5>
+                            <h6>
+                                <%- userInfo.profession %> 
+                            </h6>
+                            
+                            <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                </li>
+                              
+                            </ul>
+                </div>
+            </div>
+        
+            <div class="col-md-4 flex">
+               <a class="btn btn-primary" href="/edit/user">Edit Infos</a>
+                <a class="btn btn-danger" href="/logout">Logout</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>My LINK</p>
+                    <% userInfo.link.forEach(e => { %>
+                        <a target="_blank" href="<%- e %>">Website Link</a><br/>
+                    <% }) %>
+                    
+                    
+                    
+                    <p>SKILLS</p>
+                    <% userInfo.skills.forEach(e => { %>
+                        <a href="<%- e %>"><%- e %></a><br/>
+                    <% }) %>
+                    
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>User Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><%- userInfo._id %> </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><%- userInfo.username %></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><%- userInfo.email %></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Phone</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><%- userInfo.phone %></p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Profession</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p><%- userInfo.profession %></p>
+                                    </div>
+                                </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+  
+            
+</div>
+<%- include('partials/footer') %>

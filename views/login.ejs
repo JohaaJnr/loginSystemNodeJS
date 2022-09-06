@@ -1,0 +1,51 @@
+<%- include('partials/header') %> 
+
+<div class="wrapper">
+ 
+    <div class="logo">
+       
+        <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+        Node Js Login System Complete
+    </div>
+    <form class="p-3 mt-3" method="post" action="/login/auth">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            
+                <input type="text" name="username" id="userName" placeholder="Username / Email"/>
+             
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+            <input type="password" name="password" id="pwd" placeholder="Password">
+        </div>
+        <div class="input-group">
+            <div class="input-group-text">
+                <input type="checkbox" name="remember" aria-label="Radio button for following text input">
+                </div>
+             
+              <span>Remember me</span>
+           
+            </div>
+        
+        <button type="submit" class="btn mt-3">Login</button>
+    </form>
+        
+        <div>
+            <ul>
+                <li>
+                    <a href="/auth/google" class="btn-google">google</a>
+                </li>
+            </ul>
+        </div>
+        
+    
+    
+    <div class="text-center fs-6">
+        <a href="#">Forget password?</a> or <a href="/register">Sign up</a>
+    </div>
+</div>
+
+<%- include('partials/footer') %> 

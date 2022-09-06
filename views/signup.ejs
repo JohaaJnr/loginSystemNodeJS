@@ -1,0 +1,43 @@
+<%- include('partials/header') %> 
+<div class="wrapper">
+
+
+    <div class="logo">
+        <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+        Node Js Login System Complete
+    </div>
+    <form class="p-3 mt-3" method="post" action="/register/create_user" enctype="application/x-www-form-urlencoded">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="text" name="username" id="userName" placeholder="Username" required>
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="text" name="email" id="userName" placeholder="Email" required>
+        </div>
+
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="date" name="dob" id="userName" placeholder="Date of Birth" required>
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="tel" name="mobile" id="userName" placeholder="Mobile No." required>
+        </div>
+        
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+            <input type="password" name="pass" id="pwd" placeholder="Password" required>
+        </div>
+        <button class="btn mt-3">Create User</button>
+    </form>
+    <div class="text-center fs-6">
+        Already Registerd? | <a href="/login">Login</a>
+    </div>
+</div>
+
+<%- include('partials/footer') %> 
